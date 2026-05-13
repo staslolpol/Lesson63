@@ -37,7 +37,7 @@ int main() {
 
 	BankAccount account = get_rich_owner(accounts);
 
-	cout << account.owner << " - "<< account.balance << endl;
+	cout << account->toString();
 
 	return 0;
 }
