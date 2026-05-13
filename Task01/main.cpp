@@ -1,12 +1,24 @@
 #include "BankAccount.h"
 
+BankAccount get_rich_owner(BankAccount accounts[]) {
+	int index = 0;
+
+	for (int i = 0; i < 3; i++)
+	{
+		if (accounts[i].balance > accounts[index].balance) {
+			index = i;
+		}
+	}
+
+	return accounts[index];
+}
+
 int main() {
 	
 	BankAccount account01;
 	BankAccount account02;
 	BankAccount account03;
 
-	BankAccount accounts[]{ account01, account02, account03 };
 
 	account01.name = "11223AX";
 	account01.balance = 1000;
@@ -20,6 +32,12 @@ int main() {
 	account03.balance = 10000;
 	account03.owner = "Stas";
 
+	BankAccount accounts[]{ account01, account02, account03 };
+
+
+	BankAccount account = get_rich_owner(accounts);
+
+	cout << account.owner << " - "<< account.balance << endl;
 
 	return 0;
 }
